@@ -1,5 +1,5 @@
 <template>
-    <form  class="max-w-md mx-auto bg-white p-6 rounded-lg shadow-lg">
+    <form  class="max-w-md mx-auto bg-white p-6 rounded-lg shadow-lg" @submit.prevent="handlesubmit">
         <div class="mb-4">
         <label class="block text-gray-700 text-sm font-bold mb-2" for="email">Email:</label>
         <input 
@@ -46,10 +46,20 @@
       <label for="terms" class="ml-2 block text-gray-700 text-sm">Accept terms and conditions</label>
     </div>
 
+    <div class="flex items-center justify-between">
+      <button
+        type="submit"
+        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+      >
+        Submit
+      </button>
+    </div>
+
     </form>
     <p>Email :{{email}}</p>
     <p>Passweord : {{ password }}</p>
     <p>Role : {{ role }}</p>
+    <p>Accept Terms: {{ acceptTerms ? 'Yes' : 'No' }}</p>
 
 </template>
 
@@ -60,8 +70,14 @@ export default {
             email : '',
             password : '',
             role : '',
+            acceptTerms: false
         }
         
+    },
+    methods:{
+        handlesubmit(){
+
+        }
     }
 }
 </script>
